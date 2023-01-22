@@ -1,24 +1,16 @@
-while True:
-    n = int(input())
-    length = int(input())
-    if n <= 100 and length <= 10000:
-        break
+n = int(input())
+m = int(input())
+s = input()
+answer, i, cnt = 0, 0, 0
 
-string = input()
-
-P = []
-
-for i in range(n):
-    P.append('I')
-    P.append('O')
-P.append('I')
-p_string = ''.join(P)
-
-cnt = 0
-for i in range(length):
-    if string.find(p_string) != -1:
-        index = string.find(p_string)
-        string = ''.join(string[index + 1:])
+while i < (m - 1):
+    if s[i:i+3] == 'IOI':
+        i += 2
         cnt += 1
-
-print(cnt)
+        if cnt == n:
+            answer += 1
+            cnt -= 1
+    else:
+        i += 1
+        cnt = 0
+print(answer)
